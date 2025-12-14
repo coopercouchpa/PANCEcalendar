@@ -385,3 +385,8 @@ input[type="checkbox"]{
     background: white;
   }
 }
+.printBtn{
+padding: 12px 18px;
+font-size: 16px;
+border-radius: 10px;
+}
