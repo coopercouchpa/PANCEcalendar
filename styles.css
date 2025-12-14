@@ -328,4 +328,27 @@ input[type="number"]{
   padding: 6px 8px;
 }
 
+/* Add vertical spacing between form lines */
+label{
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+input,
+textarea{
+  margin-bottom: 12px;
+}
+
+small,
+.helper-text{
+  display: block;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+input[type="checkbox"]{
+  margin-top: 16px;
+}
 
