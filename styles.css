@@ -353,11 +353,25 @@ small,
 input[type="checkbox"]{
   margin-top: 16px;
 }
+
 /* Auto-fit number inputs to content */
 input[type="number"]{
-  width: fit-content;
-  min-width: 3ch;
-  max-width: 6ch;
+width: 3.5rem;
+height: 3.5rem;
+padding: 0;
+text-align: center;
+font-size: 1.1rem;
+line-height: 1;
+border-radius: 12px;
+box-sizing: border-box;
+appearance: textfield;
+-webkit-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button{
+-webkit-appearance: none;
+margin: 0;
 }
 
 @media print {
