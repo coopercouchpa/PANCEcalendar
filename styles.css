@@ -69,8 +69,8 @@ label{
 @media (max-width:720px){ .grid2{grid-template-columns:1fr} }
 
 input[type="text"], input[type="number"], input[type="date"]{
-  width:100%;
-  padding:10px 12px;
+  width:auto;
+  padding:6px 8px;
   border-radius:10px;
   border:1px solid var(--border);
   background:#FFFFFF;
@@ -327,13 +327,13 @@ input[type="date"]{
   max-width: 190px;
 }
 
+/* Force identical sizing for days/week and hours/day inputs */
 input[type="number"]{
-  width: auto;
-  min-width: 70px;
-  max-width: 90px;
-  text-align: right;
+  width:90px;
+  min-width:90px;
+  max-width:90px;
+  text-align:right;
 }
-
 
 /* Add vertical spacing between form lines */
 label{
