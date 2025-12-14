@@ -69,14 +69,30 @@ label{
 @media (max-width:720px){ .grid2{grid-template-columns:1fr} }
 
 input[type="text"], input[type="number"], input[type="date"]{
-  width:auto;
-  padding:6px 8px;
-  border-radius:10px;
-  border:1px solid var(--border);
-  background:#FFFFFF;
-  color:var(--text);
-  font-size:15px;
+border-radius:10px;
+border:1px solid var(--border);
+background:#FFFFFF;
+color:var(--text);
+font-size:15px;
+box-sizing:border-box;
 }
+
+input[type="text"], input[type="date"]{
+width:auto;
+padding:6px 8px;
+}
+
+input[type="number"]{
+width: 2.75rem;
+height: 2.75rem;
+padding: 0;
+text-align: center;
+font-size: 15px;
+line-height: 1;
+appearance: textfield;
+-webkit-appearance: textfield;
+}
+
 input[type="date"]{color-scheme:light}
 input:focus{
   outline:none;
@@ -352,26 +368,6 @@ small,
 
 input[type="checkbox"]{
   margin-top: 16px;
-}
-
-/* Auto-fit number inputs to content */
-input[type="number"]{
-width: 3.5rem;
-height: 3.5rem;
-padding: 0;
-text-align: center;
-font-size: 1.1rem;
-line-height: 1;
-border-radius: 12px;
-box-sizing: border-box;
-appearance: textfield;
--webkit-appearance: textfield;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button{
--webkit-appearance: none;
-margin: 0;
 }
 
 @media print {
