@@ -327,12 +327,7 @@ input[type="date"]{
   max-width: 190px;
 }
 
-/* Force identical sizing for days/week and hours/day inputs */
-input[type="number"]{
-  width:90px;
-  min-width:90px;
-  max-width:90px;
-  text-align:right;
+
 }
 
 /* Add vertical spacing between form lines */
@@ -357,5 +352,11 @@ small,
 
 input[type="checkbox"]{
   margin-top: 16px;
+}
+/* Auto-fit number inputs to content */
+input[type="number"]{
+  width: fit-content;
+  min-width: 3ch;
+  max-width: 6ch;
 }
 
