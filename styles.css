@@ -360,31 +360,18 @@ input[type="number"]{
   max-width: 6ch;
 }
 
-/* PRINT: calendar only */
 @media print {
-
-  /* Hide everything by default */
-  body * {
-    visibility: hidden;
+  .no-print {
+    display: none !important;
   }
 
-  /* Show calendar container only */
-  .calendarView,
-  .calendarView * {
-    visibility: visible;
-  }
-
-  /* Position calendar at top-left for printing */
   .calendarView {
-    position: absolute;
-    left: 0;
-    top: 0;
     width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
-  /* Remove shadows / backgrounds for clean PDF */
   body {
     background: white;
   }
 }
-
