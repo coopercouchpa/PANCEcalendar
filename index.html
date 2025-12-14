@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PANCE Study Calendar Builder</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#F9FAFB">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">PANCE Study Calendar Builder</div>
+    <div class="topbar-actions">
+      <button class="btn ghost" id="btnReset" type="button">Reset</button>
+      <button class="btn ghost" id="btnExport" type="button">Export CSV</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>Dates and schedule</h2>
+
+      <div class="grid2">
+        <div>
+          <label for="startDate">When will you start studying?</label>
+          <input id="startDate" type="date" />
+        </div>
+
+        <div>
+          <label for="examDate">What is the last day you will study?</label>
+          <input id="examDate" type="date" />
+        </div>
+
+        <div>
+          <label for="daysPerWeek">On average, how many days will you study per week?</label>
+          <input id="daysPerWeek" type="number" min="1" max="7" step="1" value="5" />
+          <div class="helper">If you also select specific study weekdays below, the weekday selection wins.</div>
+        </div>
+
+        <div>
+          <label for="hoursPerDay">Hours per study day</label>
+          <input id="hoursPerDay" type="number" min="0.5" step="0.25" value="6" />
+          <div class="helper">Used to calculate hours per topic and to fill each study day.</div>
+        </div>
+      </div>
+
+      <div class="spacer"></div>
+
+      <label>Which days of the week will you study?</label>
+      <div class="weekdayRow" id="weekdayRow">
+        <label class="pill"><input type="checkbox" id="wd0"><span>Sun</span></label>
+        <label class="pill"><input type="checkbox" id="wd1"><span>Mon</span></label>
+        <label class="pill"><input type="checkbox" id="wd2"><span>Tue</span></label>
+        <label class="pill"><input type="checkbox" id="wd3"><span>Wed</span></label>
+        <label class="pill"><input type="checkbox" id="wd4"><span>Thu</span></label>
+        <label class="pill"><input type="checkbox" id="wd5"><span>Fri</span></label>
+        <label class="pill"><input type="checkbox" id="wd6"><span>Sat</span></label>
+      </div>
+      <div class="helper">Optional. If none are selected, the app will auto-pick a weekly pattern based on your start date and days/week.</div>
+
+      <div class="spacer"></div>
+
+      <label for="daysOff">Do you plan on taking any additional days off? If so, what are the dates?</label>
+      <input id="daysOff" type="text" placeholder="example: 01/15/2026, 02/01/2026" />
+      <div class="helper">Use MM/DD/YYYY. Separate multiple dates with commas. Days off are removed from the calendar even if they would have been a study day.</div>
+
+      <div class="row">
+        <label class="check">
+          <input id="studyOnExamDay" type="checkbox" />
+          <span>Include the last day as a study day</span>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" id="btnGenerate" type="button">Generate calendar</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>PANCE Blueprint</h2>
+      <div class="helper">Adjust percentages as needed. Total should be 100%.</div>
+
+      <div class="tableWrap">
+        <table class="table" id="bpTable">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th class="num">Percent</th>
+              <th class="num">Hours</th>
+              <th class="num">Days</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <td>Total</td>
+              <td class="num" id="pctTotal">100.00%</td>
+              <td class="num" id="hoursTotal">0.00</td>
+              <td class="num" id="daysTotal">0.00</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <section class="card" id="resultsCard" style="display:none;">
+      <div class="resultsHeader">
+        <h2>Study calendar</h2>
+        <div class="viewToggle" role="tablist" aria-label="View toggle">
+          <button class="seg" id="btnViewCalendar" type="button">Calendar</button>
+          <button class="seg" id="btnViewList" type="button">List</button>
+        </div>
+      </div>
+
+      <div class="summary" id="summary"></div>
+
+      <div id="calendarView"></div>
+
+      <div class="tableWrap" id="listViewWrap">
+        <table class="table" id="planTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Plan (in order)</th>
+              <th class="num">Hours</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="helper">Hours are allocated sequentially by category order and can split within a day.</div>
+    </section>
+  </main>
+
+<script src="app.js"></script>
+</body>
+</html>

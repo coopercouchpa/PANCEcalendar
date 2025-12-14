@@ -1,0 +1,9 @@
+{
+  "name": "PANCE Study Calendar Builder",
+  "short_name": "PANCE Planner",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F9FAFB",
+  "theme_color": "#F9FAFB",
+  "icons": []
+}
